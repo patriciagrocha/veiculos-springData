@@ -1,7 +1,9 @@
 package br.com.patriciarocha.veiculos;
 
+import br.com.patriciarocha.veiculos.model.Multa;
 import br.com.patriciarocha.veiculos.model.Veiculo;
 import br.com.patriciarocha.veiculos.model.enums.TipoVeiculoEnum;
+import br.com.patriciarocha.veiculos.repository.MultaRepository;
 import br.com.patriciarocha.veiculos.repository.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +16,9 @@ public class Aplicacao {
     @Autowired
     private VeiculoRepository veiculoRepo;
 
+    @Autowired
+    private MultaRepository multaRepo;
+
     public void executar(){
         Veiculo veiculo1 = new Veiculo("ABC-1234", TipoVeiculoEnum.AUTOMOVEL,
                 "Bat-Movel", 2022, "preto");
@@ -22,6 +27,14 @@ public class Aplicacao {
 
         veiculoRepo.save(veiculo1);
         veiculoRepo.save(veiculo2);
+
+        Multa multa1 = new Multa("Gothan City", "Farol apagado", 250F, veiculo1);
+        Multa multa2 = new Multa("Gothan City", "Insulfilm", 100F, veiculo1);
+        Multa multa3 = new Multa("Hiper-espaço", "Excesso velocidade", 400F, veiculo2);
+
+        multaRepo.save(multa1);
+        multaRepo.save(multa2);
+        multaRepo.save(multa3);
 
         System.out.println(" - - - - - - - - ");
         System.out.println();

@@ -1,15 +1,9 @@
 package br.com.patriciarocha.veiculos.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "MULTAS")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Multa {
 
     @Id
@@ -26,7 +20,65 @@ public class Multa {
     @JoinColumn(name = "PLACA", referencedColumnName = "PLACA")
     private Veiculo veiculo;
 
-    public Multa(String gothanCity, String farolApagado, float v, Veiculo veiculo1) {
+    public Multa() {
+    }
+
+    public Multa(String local, String motivo, Float valor, Veiculo veiculo) {
+        this.local = local;
+        this.motivo = motivo;
+        this.valor = valor;
+        this.veiculo = veiculo;
+    }
+
+    @Override
+    public String toString() {
+        return "Multa{" +
+                "id=" + id +
+                ", local='" + local + '\'' +
+                ", motivo='" + motivo + '\'' +
+                ", valor=" + valor +
+                ", veiculo=" + veiculo +
+                '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
+    public Float getValor() {
+        return valor;
+    }
+
+    public void setValor(Float valor) {
+        this.valor = valor;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 }
 
