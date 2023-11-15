@@ -25,8 +25,13 @@ public class Aplicacao {
         Veiculo veiculo2 = new Veiculo("BCA-4321", TipoVeiculoEnum.ONIBUS,
                 "Enterprise", 1960, "prata");
 
+
         veiculoRepo.save(veiculo1);
         veiculoRepo.save(veiculo2);
+
+        //Atualizando dados
+        veiculo1.setCor("branco");
+        veiculoRepo.save(veiculo1);
 
         Multa multa1 = new Multa("Gothan City", "Farol apagado", 250F, veiculo1);
         Multa multa2 = new Multa("Gothan City", "Insulfilm", 100F, veiculo1);
@@ -36,6 +41,13 @@ public class Aplicacao {
         multaRepo.save(multa2);
         multaRepo.save(multa3);
 
+        //Atualizando dados
+        multa2.setLocal("Recife");
+        multaRepo.save(multa2);
+
+        multa3.setValor(380F);
+        multaRepo.save(multa3);
+
         System.out.println(" - - - - - - - - ");
         System.out.println();
         List<Veiculo> veiculos = veiculoRepo.findAll();
@@ -43,7 +55,13 @@ public class Aplicacao {
             System.out.println(veiculo);
         }
         System.out.println(" - - - - - - - - ");
-    }
 
+        System.out.println();
+        List<Multa> multas = multaRepo.findAll();
+        for(Multa multa : multas) {
+            System.out.println(multa);
+        }
+
+    }
 
 }
