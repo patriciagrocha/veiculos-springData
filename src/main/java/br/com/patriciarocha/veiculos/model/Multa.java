@@ -37,7 +37,6 @@ public class Multa {
                 ", local='" + local + '\'' +
                 ", motivo='" + motivo + '\'' +
                 ", valor=" + valor +
-                ", veiculo=" + veiculo +
                 '}';
     }
 

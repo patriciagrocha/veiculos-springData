@@ -31,6 +31,7 @@ public class Veiculo {
         this.anoFabricacao = anoFabricacao;
         this.cor = cor;
     }
+
     @Override
     public String toString() {
         return "Veiculo{" +
@@ -42,6 +43,7 @@ public class Veiculo {
                 ", multas=" + multas +
                 '}';
     }
+
     public String getPlaca() {
         return placa;
     }

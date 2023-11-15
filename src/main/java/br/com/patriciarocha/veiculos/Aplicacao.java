@@ -48,6 +48,7 @@ public class Aplicacao {
         multa3.setValor(380F);
         multaRepo.save(multa3);
 
+        //consultando e exibindo dados no console
         System.out.println(" - - - - - - - - ");
         System.out.println();
         List<Veiculo> veiculos = veiculoRepo.findAll();
